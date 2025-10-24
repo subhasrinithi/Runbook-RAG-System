@@ -5,7 +5,7 @@ from typing import List
 class Settings(BaseSettings):
     # LLM Configuration
     llm_provider: str = "openai"
-    llm_api_key: str = ""
+    llm_api_key: str = "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"
     llm_model: str = "openai/gpt-4o"
     
     # Vector DB
