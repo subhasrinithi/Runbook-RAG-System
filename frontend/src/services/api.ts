@@ -1,53 +1,39 @@
-import axios from 'axios';
+﻿import axios from 'axios'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8000'
 
-const api = axios.create({
-  baseURL: `${API_BASE_URL}/api/v1`,
+export const api = axios.create({
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-});
+})
 
-export interface IngestRequest {
-  directory_path: string;
-}
-
-export interface QueryRequest {
-  incident_description: string;
-  top_k?: number;
-}
-
-export interface GeneratePlaybookRequest {
-  incident_description: string;
-  context?: string[];
-  include_verification?: boolean;
-}
-
+// API service methods
 export const apiService = {
-  // Health check
-  healthCheck: async () => {
-    const response = await api.get('/health');
-    return response.data;
+  queryRunbooks: async (query: any) => {
+    const response = await api.post('/api/v1/query', query)
+    return response.data
   },
-
-  // Ingest documents
-  ingestDocuments: async (request: IngestRequest) => {
-    const response = await api.post('/ingest', request);
-    return response.data;
+  
+  generatePlaybook: async (data: any) => {
+    const response = await api.post('/api/v1/generate-playbook', data)
+    return response.data
   },
-
-  // Query runbooks
-  queryRunbooks: async (request: QueryRequest) => {
-    const response = await api.post('/query', request);
-    return response.data;
+  
+  uploadDocument: async (formData: FormData) => {
+    const response = await api.post('/api/v1/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    return response.data
   },
+  
+  getDocuments: async () => {
+    const response = await api.get('/api/v1/documents')
+    return response.data
+  }
+}
 
-  // Generate playbook
-  generatePlaybook: async (request: GeneratePlaybookRequest) => {
-    const response = await api.post('/generate-playbook', request);
-    return response.data;
-  },
-};
-
-export default api;
+export default api

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Search, Wand2 } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 import { apiService } from '../services/api';
@@ -120,3 +120,4 @@ const IncidentInput: React.FC = () => {
 };
 
 export default IncidentInput;
+

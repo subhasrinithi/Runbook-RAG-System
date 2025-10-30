@@ -15,6 +15,21 @@ class Settings(BaseSettings):
     # Document Storage
     runbooks_path: str = "./data/runbooks"
     
+    # Upload Configuration (NEW)
+    upload_dir: str = "./data/uploads"
+    max_file_size: int = 10 * 1024 * 1024  # 10MB
+    allowed_extensions: List[str] = [".md", ".txt", ".pdf"]
+    
+    # Chunking Configuration (NEW)
+    chunk_size: int = 1000
+    chunk_overlap: int = 200
+    
+    # Embeddings (NEW)
+    embedding_model: str = "all-MiniLM-L6-v2"
+    
+    # Database (NEW)
+    database_url: str = "sqlite:///./data/runbooks.db"
+    
     # API Configuration
     api_host: str = "0.0.0.0"
     api_port: int = 8000

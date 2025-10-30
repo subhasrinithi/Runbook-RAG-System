@@ -1,18 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+﻿/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // ✅ Ensures all React files are scanned for classes
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#2563eb', // Tailwind blue-600
-          light: '#3b82f6',   // Tailwind blue-500
-          dark: '#1e40af',    // Tailwind blue-800
-        },
-      },
-    },
+    extend: {},
   },
   plugins: [],
-};
+}

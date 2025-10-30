@@ -1,36 +1,13 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Global font & layout resets */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to right, #eef2ff, #f9fafb);
-  min-height: 100vh;
-}
-
-/* Code font styling */
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Optional custom utilities */
-@layer components {
-  .card {
-    @apply bg-white rounded-lg shadow-md p-6 transition-all duration-200 hover:shadow-lg;
-  }
-
-  .btn-primary {
-    @apply bg-blue-600 text-white font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition;
-  }
-
-  .btn-secondary {
-    @apply bg-gray-100 text-gray-800 font-medium px-4 py-2 rounded-lg hover:bg-gray-200 transition;
-  }
 }
